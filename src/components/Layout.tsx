@@ -29,7 +29,7 @@ const Layout: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted">
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted flex flex-col">
       <header className="sticky top-0 z-40 w-full border-b bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
@@ -45,7 +45,7 @@ const Layout: React.FC = () => {
         <Outlet />
       </main>
 
-      <nav className="sticky bottom-0 w-full border-t bg-background">
+      <nav className="fixed bottom-0 left-0 right-0 w-full border-t bg-background z-40">
         <div className="container mx-auto flex justify-between items-center py-2">
           {navItems.map((item) => (
             <Link 
@@ -64,6 +64,9 @@ const Layout: React.FC = () => {
           ))}
         </div>
       </nav>
+      
+      {/* Add padding at the bottom to prevent content from being hidden behind the navbar */}
+      <div className="h-16"></div>
     </div>
   );
 };
